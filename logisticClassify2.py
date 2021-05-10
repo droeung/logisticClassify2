@@ -58,10 +58,16 @@ class logisticClassify2(ml.classifier):
 
     def predict(self, X):
         """ Return the predicted class of each data point in X"""
-        raise NotImplementedError
+        #raise NotImplementedError
         ## TODO: compute linear response r[i] = theta0 + theta1 X[i,1] + theta2 X[i,2] + ... for each i
+        r[i] = self.theta[0] + X.dot(self.theta[1:])
+        Yhat = 0
         ## TODO: if r[i] > 0, predict class 1:  Yhat[i] = self.classes[1]
         ##       else predict class 0:  Yhat[i] = self.classes[0]
+        if r[i] > 0:
+            Yhat[i] = self.classes[1]
+        else:
+            Yhat[i] = self.classes[0]
         return Yhat
 
 
