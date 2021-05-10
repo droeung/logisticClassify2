@@ -41,8 +41,6 @@ class logisticClassify2(ml.classifier):
         if len(self.theta) != 3: raise ValueError('Data & model must be 2D');
         ax = X.min(0),X.max(0); ax = (ax[0][0],ax[1][0],ax[0][1],ax[1][1]);
         ## TODO: Find two points on decision boundary defined by theta0 + theta1 X1 + theta2 X2 == 0
-        ml.plotClassify2D(None, X, Y)
-        ax = plt.axis()
         x1b = np.array([ax[0],ax[1]]);  # The X1 coordinates of the two points
         x2b = (-self.theta[0] - self.theta[1]*x1b) / self.theta[2]
         ## Now plot the data and the resulting boundary:
