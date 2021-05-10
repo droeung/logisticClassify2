@@ -42,7 +42,7 @@ class logisticClassify2(ml.classifier):
         ax = X.min(0),X.max(0); ax = (ax[0][0],ax[1][0],ax[0][1],ax[1][1]);
         ## TODO: Find two points on decision boundary defined by theta0 + theta1 X1 + theta2 X2 == 0
         x1b = np.array([ax[0],ax[1]]);  # The X1 coordinates of the two points
-        x2b = NotImplementedError;      # TODO: Find corresponding X2 coordinates of the two points
+        x2b = (-self.theta[0] - self.theta[1]*x1b)/self.theta[2];  # TODO: Find corresponding X2 coordinates of the two points
         ## Now plot the data and the resulting boundary:
         A = Y==self.classes[0]; # and plot it:
         plt.plot(X[A,0],X[A,1],'b.',X[~A,0],X[~A,1],'r.',x1b,x2b,'k-'); plt.axis(ax); plt.draw();
